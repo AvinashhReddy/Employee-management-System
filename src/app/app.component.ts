@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'empmansys';
+  v:boolean=true;
+  m1(){
+    this.v=false;
+  }
+  m2(){
+    this.v=true;
+  }
+
 }

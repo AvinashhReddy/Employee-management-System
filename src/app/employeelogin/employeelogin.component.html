@@ -1,0 +1,78 @@
+
+<div class="card-body">
+    <div class="card-body">
+        <h4 class="card-title">EMPLOYEE SIGN-IN</h4>
+       
+    <div class="alert alert-info alert-dismissible " role="alert" *ngIf="formSubmitted">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <strong>SIGNED IN!</strong>
+      </div>
+  
+        <div class="row">
+            <div class="col-md-4">
+                <form [formGroup] = "myForm" novalidate>  
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.errors && (name.touched || name.dirty), 'is-valid':name.valid}"   >           
+                        <div class="invalid-feedback" >
+                            <strong *ngIf="name.errors?.required">Name is required</strong>
+                           
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" class="form-control" formControlName = "id" [ngClass]="{'is-invalid': id.errors && (id.touched || id.dirty), 'is-valid':id.valid}"   >         
+                        <div class="invalid-feedback" >
+                            <strong *ngIf="id.errors?.required">id is required</strong>
+                            
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                      
+                    <input type="text" class="form-control" formControlName = "phone" [ngClass]="{'is-invalid': phone.errors && (phone.touched || phone.dirty), 'is-valid':phone.valid}"   >           
+                    <div class="invalid-feedback" >
+                        <strong *ngIf="phone.errors?.required">phone is required</strong>
+                        <strong *ngIf="phone.errors?.minlength">phone number length must be equal to {{phone.errors?.minlength.requiredLength}} character. {{phone.errors?.minlength.requiredLength -phone.errors?.minlength.actualLength}} more character required. </strong>
+                      </div>
+                </div> 
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" formControlName = "email" [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty), 'is-valid':email.valid}"   >         
+                        <div class="invalid-feedback" >
+                            <strong *ngIf="email.errors?.required">email is required</strong>
+                           
+                          </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" class="form-control" formControlName = "location" [ngClass]="{'is-invalid':location.errors && (location.touched || location.dirty), 'is-valid':location.valid}"   >         
+                        <div class="invalid-feedback" >
+                            <strong *ngIf="location.errors?.required">location is required</strong>
+                            
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" class="form-control" formControlName = "password" [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty), 'is-valid':password.valid}"   >          
+                        <div class="invalid-feedback" >
+                            <strong *ngIf="password.errors?.required">password is required</strong>
+                            <strong *ngIf="password.errors?.minlength">password length must be greater than {{password.errors?.minlength.requiredLength}} character. {{password.errors?.minlength.requiredLength - password.errors?.minlength.actualLength}} more character required. </strong>
+                          </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" (click)="addEmployee(myForm.value)">SIGN-IN</button>
+                    
+                    
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+

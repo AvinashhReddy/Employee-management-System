@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "empmansys"
+  "defaultProject": "empmansys",
+  "cli": {
+    "analytics": "c5dff656-ac45-4e2a-b107-8e5ea8a22ad0"
+  }
 }
